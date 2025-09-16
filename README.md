@@ -60,7 +60,7 @@ Search: Use search bar to find expenses by notes
 Managing Categories: Add new categories in Settings
 
 Demo Video Contents 📹
-The demo video shows:
+The demo video shows: https://drive.google.com/file/d/15fZDJpKkfB6OI0Og0qYW1X6LHgoU3yV4/view?usp=drive_link
 
 ✅ Adding multiple expenses with different categories
 
@@ -122,6 +122,7 @@ MIT License - feel free to use this project for learning purposes!
 text
 
 ## 🎥 Demo Video Checklist
+https://drive.google.com/file/d/15fZDJpKkfB6OI0Og0qYW1X6LHgoU3yV4/view?usp=drive_link
 
 Record a screen recording showing:
 
@@ -153,9 +154,3 @@ Record a screen recording showing:
 - Show "Clear All Data" option
 - Demonstrate confirmation dialog
 - Show empty state after clearing
-
-## 📦 Final Steps Before Submission
-
-1. **Test Everything**
-   ```bash
-   npm start
