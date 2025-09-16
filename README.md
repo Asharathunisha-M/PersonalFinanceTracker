@@ -1,54 +1,161 @@
-<<<<<<< HEAD
-# Welcome to your Expo app 👋
+# Personal Finance Tracker 💰
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native mobile application for tracking personal expenses with data persistence using AsyncStorage.
 
-## Get started
+## Features
 
-1. Install dependencies
+### ✅ Core Requirements
+- **Add Expenses**: Amount, category dropdown, optional notes
+- **Expense List**: Grouped by date with Today/Week/Month totals
+- **Categories**: Predefined + user-added categories with persistence
+- **Filtering & Sorting**: By category and amount/date
+- **Search**: Find expenses by notes
+- **Settings**: Manage categories and clear all data
 
-   ```bash
-   npm install
-   ```
+### 📱 Screens
+1. **Home/Overview**: Expense list with summaries
+2. **Add Expense**: Form for new expenses
+3. **Settings**: Category management and data controls
 
-2. Start the app
+## Installation & Setup
 
-   ```bash
-   npx expo start
-   ```
+### Prerequisites
+- Node.js and npm
+- Expo CLI (`npm install -g expo-cli`)
+- Expo Go app on your mobile device
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+### Installation
 ```bash
-npm run reset-project
-```
+# Clone the repository
+git clone <your-repo-url>
+cd PersonalFinanceTracker
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+# Install dependencies
+npm install
 
-## Learn more
+# Start the development server
+npm start
 
-To learn more about developing your project with Expo, look at the following resources:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Dependencies
+json
+{
+  "@react-navigation/native": "^7.x",
+  "@react-navigation/bottom-tabs": "^7.x",
+  "@react-native-async-storage/async-storage": "^2.x",
+  "react-native-vector-icons": "^10.x",
+  "react-native-modal": "^14.x"
+}
 
-## Join the community
 
-Join our community of developers creating universal apps.
+Usage
+Adding Expenses: Tap "Add Expense", enter amount, select category, add optional note
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
-=======
-"# PersonalFinanceTracker" 
->>>>>>> 48838e04446800a8ac84e48de2cf68ee78155bf9
+Viewing Expenses: Home screen shows expenses grouped by date
+
+Filtering: Use category filters and sort options
+
+Search: Use search bar to find expenses by notes
+
+Managing Categories: Add new categories in Settings
+
+Demo Video Contents 📹
+The demo video shows:
+
+✅ Adding multiple expenses with different categories
+
+✅ Viewing the grouped expense list
+
+✅ Using category filters and sorting
+
+✅ Searching expenses by notes
+
+✅ Viewing automatic totals (Today, This Week, This Month)
+
+✅ Adding new custom categories
+
+✅ Clearing all data with confirmation
+
+Technical Implementation
+Data Persistence
+Uses AsyncStorage for local data persistence
+
+Stores expenses and categories separately
+
+Automatic data loading on app start
+
+Navigation
+React Navigation with Bottom Tabs
+
+Three main screens with proper routing
+
+State Management
+React Context for cross-component refresh triggers
+
+Local state management for UI interactions
+
+Bonus Features (Optional)
+Charts for spending visualization
+
+Budget setting and tracking
+
+Data export functionality
+
+Recurring expenses
+
+Multiple currency support
+
+Contributing
+Fork the repository
+
+Create a feature branch
+
+Commit your changes
+
+Push to the branch
+
+Create a Pull Request
+
+License
+MIT License - feel free to use this project for learning purposes!
+
+text
+
+## 🎥 Demo Video Checklist
+
+Record a screen recording showing:
+
+### 1. **Adding Expenses** (30 seconds)
+- Tap "Add Expense" tab
+- Enter amount: "25.50"
+- Select category: "Food"
+- Add note: "Lunch at cafe"
+- Tap "Add Expense"
+- Show success message
+
+### 2. **Viewing Grouped List** (20 seconds)
+- Go to Home tab
+- Show expense grouped by date
+- Point out Today/Week/Month totals
+
+### 3. **Filters & Search** (30 seconds)
+- Filter by "Food" category
+- Change sort to "Amount (High to Low)"
+- Search for "lunch" in notes
+- Show filtered results
+
+### 4. **Category Management** (20 seconds)
+- Go to Settings
+- Show existing categories
+- Add a new category: "Entertainment" with fun icon
+
+### 5. **Data Management** (15 seconds)
+- Show "Clear All Data" option
+- Demonstrate confirmation dialog
+- Show empty state after clearing
+
+## 📦 Final Steps Before Submission
+
+1. **Test Everything**
+   ```bash
+   npm start
