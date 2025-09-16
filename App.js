@@ -1,0 +1,124 @@
+import React, { useEffect, useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
+
+// Import screen components
+import HomeScreen from './src/screens/HomeScreen';
+import AddExpenseScreen from './src/screens/AddExpenseScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+
+// Import storage functions
+import { getCategories, saveCategories } from './src/utils/storage';
+import { DEFAULT_CATEGORIES } from './src/constants/categories';
+
+// Import RefreshProvider
+import { RefreshProvider } from './src/contexts/RefreshContext';
+
+const Tab = createBottomTabNavigator();
+
+// Loading component
+const LoadingScreen = () => (
+  <View style={styles.loadingContainer}>
+    <ActivityIndicator size="large" color="tomato" />
+    <Text style={styles.loadingText}>Loading...</Text>
+  
+  </View>
+);
+
+export default function App() {
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const initializeApp = async () => {
+      try {
+        const storedCategories = await getCategories();
+        if (storedCategories.length === 0) {
+          await saveCategories(DEFAULT_CATEGORIES);
+          setCategories(DEFAULT_CATEGORIES);
+        } else {
+          setCategories(storedCategories);
+        }
+      } catch (error) {
+        console.error('Error initializing app:', error);
+        setCategories(DEFAULT_CATEGORIES);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeApp();
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+
+  return (
+    <RefreshProvider> {/* Wrap your app with the provider */}
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+
+              if (route.name === 'Home') {
+                iconName = focused ? 'home' : 'home-outline';
+              } else if (route.name === 'Add Expense') {
+                iconName = focused ? 'add-circle' : 'add-circle-outline';
+              } else if (route.name === 'Settings') {
+                iconName = focused ? 'settings' : 'settings-outline';
+              }
+
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: 'tomato',
+            tabBarInactiveTintColor: 'gray',
+            headerStyle: {
+              backgroundColor: 'tomato',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          })}
+        >
+          <Tab.Screen 
+            name="Home" 
+            options={{ title: 'Expense Overview' }}
+          >
+            {props => <HomeScreen {...props} categories={categories} />}
+          </Tab.Screen>
+          <Tab.Screen 
+            name="Add Expense" 
+            options={{ title: 'Add New Expense' }}
+          >
+            {props => <AddExpenseScreen {...props} categories={categories} setCategories={setCategories} />}
+          </Tab.Screen>
+          <Tab.Screen 
+            name="Settings" 
+            options={{ title: 'App Settings' }}
+          >
+            {props => <SettingsScreen {...props} categories={categories} setCategories={setCategories} />}
+          </Tab.Screen>
+        </Tab.Navigator>
+      </NavigationContainer>
+    </RefreshProvider>
+  );
+}
+
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+  },
+  loadingText: {
+    marginTop: 12,
+    fontSize: 16,
+    color: '#666',
+  },
+});
