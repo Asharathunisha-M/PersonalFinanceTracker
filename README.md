@@ -4,8 +4,8 @@ A React Native mobile application for tracking personal expenses with data persi
 
 ## 📱 Application
 - **GitHub Repository**: https://github.com/Asharathunisha-M/PersonalFinanceTracker
-- **Video Demonstration**: https://drive.google.com/...
-- 
+- **Video Demonstration**: https://drive.google.com/file/d/15fZDJpKkfB6OI0Og0qYW1X6LHgoU3yV4/view?usp=sharing
+ 
 ## Features
 
 ### ✅ Core Requirements
@@ -126,8 +126,7 @@ MIT License - feel free to use this project for learning purposes!
 text
 
 ## 🎥 Demo Video Checklist
-https://drive.google.com/file/d/15fZDJpKkfB6OI0Og0qYW1X6LHgoU3yV4/view?usp=drive_link
-
+https://drive.google.com/file/d/15fZDJpKkfB6OI0Og0qYW1X6LHgoU3yV4/view?usp=sharing
 Record a screen recording showing:
 
 ### 1. **Adding Expenses** (30 seconds)
