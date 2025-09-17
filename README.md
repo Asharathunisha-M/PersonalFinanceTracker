@@ -2,6 +2,10 @@
 
 A React Native mobile application for tracking personal expenses with data persistence using AsyncStorage.
 
+## 📱 Application
+- **GitHub Repository**: https://github.com/Asharathunisha-M/PersonalFinanceTracker
+- **Video Demonstration**: https://drive.google.com/...
+- 
 ## Features
 
 ### ✅ Core Requirements
